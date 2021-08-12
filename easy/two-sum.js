@@ -12,21 +12,24 @@
 //   }
 // };
 
-twoSum([2, 7, 11, 15], 9);
+// twoSum([2, 7, 11, 15], 9);
 
 // Big O(n) -> we are only visiting each number once
 const twoSum = function (nums, target) {
   const comp = new Map(); // key: value
-  // calculate outside so that the length does not get re-counted every time there is an iteration in the loop
+  // calculate outside so that the length does not get called every time there is an iteration in the loop
   const len = nums.length;
 
   for (let i = 0; i < len; i++) {
     // check if that number already exists in our map
-    if (comp[nums[i] >= 0]) {
-      return [comp[(nums[i], i)]];
+    if (comp[nums[i]] >= 0) {
+      return [comp[nums[i]], i];
     }
     // saving compliment of that number, not number itself
     comp[target - nums[i]] = i;
   }
+
   return [];
 };
+
+console.log(twoSum([2, 8, 11, 15], 10));
