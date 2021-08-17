@@ -3,16 +3,16 @@
 //You can return the answer in any order.
 
 // Brute Force O(n^2)
-// const twoSum = function (nums, target) {
-//   for (let i = 0; i < nums.length; i++) {
-//     for (let j = i + 1; i < nums.length; j++)
-//       if (nums[i] + nums[j] === target) {
-//         return console.log([i, j]);
-//       }
-//   }
-// };
+const twoSum = function (nums, target) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; i < nums.length; j++)
+      if (nums[i] + nums[j] === target) {
+        return console.log([i, j]);
+      }
+  }
+};
 
-// twoSum([2, 7, 11, 15], 9);
+twoSum([2, 7, 11, 15], 9);
 
 // Big O(n) -> we are only visiting each number once
 const twoSum = function (nums, target) {
@@ -27,9 +27,10 @@ const twoSum = function (nums, target) {
     }
     // saving compliment of that number, not number itself
     comp[target - nums[i]] = i;
+    console.log(target, "-", nums[i], "=", i);
   }
 
   return [];
 };
 
-console.log(twoSum([2, 8, 11, 15], 10));
+console.log(twoSum([2, 11, 7, 15], 9));
